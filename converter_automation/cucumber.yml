@@ -2,6 +2,6 @@ area: -t @area
 volume: -t @volume
 wip: -t @wip --format html --out report.html --format pretty
 
-any: -t @area, @volume, @wip
+any: -t @area,@volume --format html --out report.html --format pretty
 wip_area: -t @wip -t @area --format html --out report.html --format pretty
 convert_wip: -t @wip -t @convert --format html --out report.html --format pretty
