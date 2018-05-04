@@ -3,6 +3,7 @@ Feature: User is able to convert area units
 
   Background:
     Given I click on Got it button
+    And I land on Area screen
 
 
 #  Scenario: User is able to dismiss help
@@ -10,7 +11,7 @@ Feature: User is able to convert area units
 #    When I click on Got it button
 #    Then I land on Area screen
 
-@swap @wip
+@swap
   Scenario: User is able to swap values
     Given I see "Sq Kilometre" in From header
     And I see "Sq Metre" in To header
@@ -37,8 +38,13 @@ Scenario Outline: User is able to convert default units
     And I press "12" on soft keyboard
     Then I get "12000000" in To field
 
-@convert
-  Scenario: User is able to select  other unit
-    When I select "Hectare" from left column
-    Then I see "Hectare" in From header
-    And I get "10000" in To field
+  @convert @wip
+  Scenario Outline: User is able to select  other unit
+    When I select "<target>" from left column
+    Then I see "<target>" in From header
+    And I get "<result>" in To field
+    Examples:
+      |target|result|
+      |Sq Kilometre |1000000|
+      |Sq Metre     |1|
+      |Sq Centimetre|0.0001|
